@@ -38,4 +38,8 @@ The Memory tagging TG’s deliverables include:
 	  managed runtime (OpenJDK and golang?) for memory tagging  
 	- Collect metrics on code size growth for major applications / SPEC benchmarks.
 
+. TG should look into possiblity of extensiblity of loads/stores on tag storage so that any new
+  metadata definition in future should be able to use same mechanism instead of creating new load/
+  store
+
 [1] https://docs.google.com/document/d/1XiMLTDj2JXb20pjM3Pm5wGnOli7skujIIXlFO2stFp8/edit#heading=h.rsyez7sin2vg
