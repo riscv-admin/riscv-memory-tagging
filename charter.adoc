@@ -1,39 +1,40 @@
-= Memory Tagging Task Group Charter
+Acting chair: Deepak Gupta <debug@rivosinc.com>
+Acting vice-chair: Siqi Zhao <zhaosiqi.zsq@alibaba-inc.com>
 
-== Introduction
+Memory Tagging Task Group (TG) Charter  [draft]
+Define a memory tagging ISA extension that can be used by software to enforce memory tag checks on memory loads and stores. Motivation for memory tagging ISA extension is to provide primitives for safer memory management and is covered in detail in memory safety whitepaper [1]. A very high level design direction set by runtime integrity SIG for memory tagging TG is based upon the following criteria. Refer to the summary in the whitepaper [1] for additional details on criteria that were analyzed by the SIG. 
 
-The {New Group Name} {New Group Type} aims to [INSERT CLEAR, CONCISE OVERALL MISSION STATEMENT IN 2-3 SENTENCES].
+The Memory tagging TG’s deliverables include:
+1. An ISA extension specification that can be used by software to to enforce memory tag check
+   on memory loads and stores.
 
-== Definitions (Optional)
+	- The ISA should be deployable in production with ability to turn on/off capability on the
+	  same  binary and address space.
+    - The ISA should enable software to cover both Temporal and Spatial Safety models.
+    - The delivered ISA extension should fulfill the following criteria:
+		- Applicable to ISAs with at least 64-bit addresses (e.g. RV64, RV128) only; not applicable
+		  to RV32
+		- Virtual address accesses subject to tag checks (tag checks not applicable to physical
+		  address accesses)
+		- Tag programming must happen via dedicated instructions
+		- Fault reporting: synchronous (min) and asynchronous both
+		- Granularity: 16 bytes must be supported, other than 16 byte granularity optional and may 
+		  depend on configuration.
+		- Tag size: >= 4 bits
+		- Usable privilege: U, S, HS, VS and M
+		- Supports both implicit and explicit tag checking
+		- Software control on tag checkings : enabled/disabled via a PTE bit or an unused encoding
+		- Hardware assisted tag creation for portable binary (portable stack pointer creation) : Yes
+		- Tag storage: Tag storage should be in virtual memory of workload’s address space and 		
+		  indexed virtually. Tag storage must be protected from being accessible via regular loads and stores and access must happen in secure manner (in case of M-mode or bare mode, virtual = physical)
 
-[TERM 1] refers to [DEFINITION 1]. It is critical because [EXPLAIN SIGNIFICANCE]. [INCLUDE ADDITIONAL TERMS/DEFINITIONS IF REQUIRED].
+2. A definition of dependencies (ISA, non-ISA) for the ISA extension.
 
-== Background
+3. The following Proofs of Concept (PoCs):
+	- Compiler (gcc, clang), privileged software, and emulator/simulator (Linux kernel, QEMU, 
+	  spike, sail) enabled to support memory tagging.
+	- Enable a major application (preferably a browser), spec benchmark (SPECint), and a major 
+	  managed runtime (OpenJDK and golang?) for memory tagging  
+	- Collect metrics on code size growth for major applications / SPEC benchmarks.
 
-[PROVIDE CONTEXT ABOUT THE GROUP'S RELEVANCE AND ANY PERTINENT TECHNOLOGY].
-
-== Objectives
-
-The {New Group Name} {New Group Type} is committed to delivering [SPECIFY DELIVERABLE] with the following attributes:
-
-* [ATTRIBUTE 1]
-* [ATTRIBUTE 2]
-* [ADD MORE AS REQUIRED]
-
-== Exclusions (Optional)
-
-While not currently in scope, the following items may be considered for future iterations:
-
-* [FEATURE 1]
-* [FEATURE 2]
-* [ADD MORE AS REQUIRED]
-
-== Collaborations
-
-To fulfill its objectives, the {New Group Name} {New Group Type} will engage with:
-
-* [GROUP NAME 1] [GROUP TYPE 1]
-* [GROUP NAME 2] [GROUP TYPE 2]
-* [ADDITIONAL GROUPS AS NEEDED]
-
-NOTE: Ensure to replace all placeholders ({ }) with the actual names or information and remove any optional sections that are not applicable to your charter. Also, remove this note :)
+[1] Memory Safety - Strategy, Gaps Analysis and Recommendations
