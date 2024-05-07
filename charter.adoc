@@ -5,11 +5,12 @@ Memory Tagging Task Group (TG) Charter  [draft]
 Define a memory tagging ISA extension that can be used by software to enforce memory tag checks on memory loads and stores. Motivation for memory tagging ISA extension is to provide primitives for safer memory management and is covered in detail in memory safety whitepaper [1]. A very high level design direction set by runtime integrity SIG for memory tagging TG is based upon the following criteria. Refer to the summary in the whitepaper [1] for additional details on criteria that were analyzed by the SIG. 
 
 The Memory tagging TG’s deliverables include:
+
 1. An ISA extension specification that can be used by software to to enforce memory tag check
    on memory loads and stores.
 
 	- The ISA should be deployable in production with ability to turn on/off capability on the
-	  same  binary and address space.
+	  same binary and address space.
     - The ISA should enable software to cover both Temporal and Spatial Safety models.
     - The delivered ISA extension should fulfill the following criteria:
 		- Applicable to ISAs with at least 64-bit addresses (e.g. RV64, RV128) only; not applicable
