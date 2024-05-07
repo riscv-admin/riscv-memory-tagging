@@ -9,7 +9,7 @@ The Memory tagging TG’s deliverables include:
 1. An ISA extension specification that can be used by software to to enforce memory tag check
    on memory loads and stores.
 
-	- The ISA should be deployable in production with ability to turn on/off capability on the
+	- The ISA should be deployable in production with ability to turn on/off capability on the 
 	  same binary and address space.
     - The ISA should enable software to cover both Temporal and Spatial Safety models.
     - The delivered ISA extension should fulfill the following criteria:
@@ -38,4 +38,4 @@ The Memory tagging TG’s deliverables include:
 	  managed runtime (OpenJDK and golang?) for memory tagging  
 	- Collect metrics on code size growth for major applications / SPEC benchmarks.
 
-[1] Memory Safety - Strategy, Gaps Analysis and Recommendations
+[1] https://docs.google.com/document/d/1XiMLTDj2JXb20pjM3Pm5wGnOli7skujIIXlFO2stFp8/edit#heading=h.rsyez7sin2vg
