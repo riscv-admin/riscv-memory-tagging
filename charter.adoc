@@ -6,7 +6,7 @@ Define a memory tagging ISA extension that can be used by software to enforce me
 
 The Memory tagging TG’s deliverables include:
 
-. 1 An ISA extension specification that can be used by software to to enforce memory tag check
+. An ISA extension specification that can be used by software to to enforce memory tag check
    on memory loads and stores.
 
 	- The ISA should be deployable in production with ability to turn on/off capability on the 
@@ -29,9 +29,9 @@ The Memory tagging TG’s deliverables include:
 		- Tag storage: Tag storage should be in virtual memory of workload’s address space and 		
 		  indexed virtually. Tag storage must be protected from being accessible via regular loads and stores and access must happen in secure manner (in case of M-mode or bare mode, virtual = physical)
 
-. 2 A definition of dependencies (ISA, non-ISA) for the ISA extension.
+. A definition of dependencies (ISA, non-ISA) for the ISA extension.
 
-. 3 The following Proofs of Concept (PoCs):
+. The following Proofs of Concept (PoCs):
 	- Compiler (gcc, clang), privileged software, and emulator/simulator (Linux kernel, QEMU, 
 	  spike, sail) enabled to support memory tagging.
 	- Enable a major application (preferably a browser), spec benchmark (SPECint), and a major 
